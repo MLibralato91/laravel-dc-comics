@@ -22,11 +22,11 @@ class ComicController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     *
      */
     public function create()
     {
-        //
+        return view('comics.create');
     }
 
     /**
@@ -37,7 +37,12 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $newComic = new Comic();
+
+        $newComic->fill($data);
+        $newComic->save();
+        return redirect()->route('comic.show', $newComic->id);
     }
 
     /**

@@ -8,8 +8,8 @@
             <div class="card-body">
                 <h5 class="card-series"> {{ $comic->title }}</h5>
                 <p class="card-text">{!! $comic->description !!}</p>
-                <p class="card-text"><strong>Peso:</strong>
-                    {{ $comic->price }} - <strong>Tipo:</strong> {{ $comic->type }} - <strong>Cottura:</strong>
+                <p class="card-text"><strong>Prezzo:</strong>
+                    {{ $comic->price }} - <strong>Tipologia:</strong> {{ $comic->type }} - <strong>Data di uscita:</strong>
                     {{ $comic->sale_date }}</p>
 
             </div>
