@@ -12,9 +12,9 @@
                         <div class="card-body">
                             <h5 class="card-title"> {{ $comic->series }}</h5>
 
-                            {{-- <a href="{{ route('products.show', $product->id) }}" class="btn btn-primary">Vai
+                            <a href="{{ route('comic.show', $comic->id) }}" class="btn btn-primary">Vai
                                 al
-                                dettaglio</a> --}}
+                                dettaglio</a>
                         </div>
                     </div>
                 </div>
