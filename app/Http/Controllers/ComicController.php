@@ -33,7 +33,8 @@ class ComicController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     *
+     *
      */
     public function store(Request $request)
     {
@@ -42,7 +43,7 @@ class ComicController extends Controller
 
         $newComic->fill($data);
         $newComic->save();
-        return redirect()->route('comic.show', $newComic->id);
+        return redirect()->route('comic.index')->with('message', "Il prodotto con id {$newComic->id} è stato salvato con successo");
     }
 
     /**
@@ -73,11 +74,14 @@ class ComicController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Comic  $comic
-     * @return \Illuminate\Http\Response
+     *
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        $form_data = $request->all();
+        //$comic = Comic::findOrFail($id);
+        $comic->update($form_data);
+        return redirect()->route('comic.show', $comic->id);
     }
 
     /**

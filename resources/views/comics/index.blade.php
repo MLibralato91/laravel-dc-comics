@@ -3,6 +3,11 @@
 @section('content')
     <section class="container">
         <h1>Comics</h1>
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
         <a href="{{ route('homepage') }}" class="btn btn-primary">Torna alla Home</a>
         <div class="row gy-4">
             @foreach ($comics as $comic)
@@ -16,6 +21,11 @@
                                 al
                                 dettaglio</a>
                             <a href="{{ route('comic.edit', $comic->id) }}" class="btn btn-primary">Modifica il fumetto</a>
+                            <form action="{{ route('comic.destroy', $comic->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                            </form>
+
                         </div>
                     </div>
                 </div>
