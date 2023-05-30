@@ -15,6 +15,7 @@
                             <a href="{{ route('comic.show', $comic->id) }}" class="btn btn-primary">Vai
                                 al
                                 dettaglio</a>
+                            <a href="{{ route('comic.edit', $comic->id) }}" class="btn btn-primary">Modifica il fumetto</a>
                         </div>
                     </div>
                 </div>

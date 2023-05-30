@@ -2,9 +2,10 @@
 
 @section('content')
     <section class="container">
-        <h1>Inserisci Nuovo prodotto</h1>
-        <form action="{{ route('comic.store') }}" method="POST">
+        <h1>Modifica il fumetto con id: {{ $comic->id }}</h1>
+        <form action="{{ route('comic.update', $comic->id) }}" method="POST">
             @csrf
+            @method('PUT')
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo</label>
                 <input type="text" class="form-control" name="title" id="title" aria-describedby="titleHelp">
@@ -45,5 +46,4 @@
             <button type="reset" class="btn btn-primary">Reset</button>
         </form>
     </section>
-    @csrf
 @endsection
