@@ -81,17 +81,18 @@ class ComicController extends Controller
         $form_data = $request->all();
         //$comic = Comic::findOrFail($id);
         $comic->update($form_data);
-        return redirect()->route('comic.show', $comic->id);
+        return redirect()->route('comic.index', $comic->id)->with('message', "Il prodotto con id {$comic->id} è stato modificato con successo");
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Comic  $comic
-     * @return \Illuminate\Http\Response
+     *
      */
     public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+        return redirect()->route('comic.index')->with('message', "Il prodotto con id {$comic->id} è stato cancellato con successo");
     }
 }

@@ -20,10 +20,12 @@
                             <a href="{{ route('comic.show', $comic->id) }}" class="btn btn-primary">Vai
                                 al
                                 dettaglio</a>
-                            <a href="{{ route('comic.edit', $comic->id) }}" class="btn btn-primary">Modifica il fumetto</a>
+                            <a href="{{ route('comic.edit', $comic->id) }}" class="btn btn-warning">Modifica il fumetto</a>
                             <form action="{{ route('comic.destroy', $comic->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
+                                <button type="submit" class="btn btn-danger"
+                                    data-item-item="{{ $comic->title }}">Cancella</button>
                             </form>
 
                         </div>
@@ -31,7 +33,7 @@
                 </div>
             @endforeach
         </div>
-
-
     </section>
+
+    @include('partials.popupdelete')
 @endsection
