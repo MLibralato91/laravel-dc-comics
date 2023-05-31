@@ -11,6 +11,11 @@
                 <input type="text" class="form-control" name="title" id="title" aria-describedby="titleHelp"
                     value="{{ $comic->title }}">
                 <div id="titleHelp" class="form-text">Inserisci un titolo</div>
+                @error('title')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <textarea name="description" id="description" cols="30" rows="10">
                 {{ $comic->description }}
@@ -19,16 +24,16 @@
                 {{ $comic->thumb }}
             </textarea>
             <div class="mb-3">
-                <label for="price" class="form-label">Titolo</label>
+                <label for="price" class="form-label">Prezzo</label>
                 <input type="text" class="form-control" name="price" id="price" aria-describedby="myPrice"
                     value="{{ $comic->price }}">
-                <div id="myPrice" class="form-text">Inserisci un titolo</div>
+                <div id="myPrice" class="form-text">Inserisci un prezzo</div>
             </div>
             <div class="mb-3">
-                <label for="series" class="form-label">Titolo</label>
+                <label for="series" class="form-label">Serie</label>
                 <input type="text" class="form-control" name="series" id="series" aria-describedby="mySeries"
                     value="{{ $comic->series }}">
-                <div id="mySeries" class="form-text">Inserisci un titolo</div>
+                <div id="mySeries" class="form-text">Inserisci la serie</div>
             </div>
             <div class="mb-3">
                 <label for="sale_date" class="form-label">Data</label>
@@ -37,10 +42,10 @@
                 <div id="mySale_date" class="form-text">Inserisci la data (AAAA/MM/DD)</div>
             </div>
             <div class="mb-3">
-                <label for="type" class="form-label">Titolo</label>
+                <label for="type" class="form-label">Tipologia</label>
                 <input type="text" class="form-control" name="type" id="type" aria-describedby="myType"
                     value="{{ $comic->type }}">
-                <div id="myType" class="form-text">Inserisci un titolo</div>
+                <div id="myType" class="form-text">Inserisci la tipologia</div>
             </div>
 
 

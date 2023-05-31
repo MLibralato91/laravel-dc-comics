@@ -6,6 +6,9 @@ use App\Models\Comic;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\UpdateComicRequest;
+use App\Http\Requests\StoreComicRequest;
+
 class ComicController extends Controller
 {
     /**
@@ -76,9 +79,9 @@ class ComicController extends Controller
      * @param  \App\Models\Comic  $comic
      *
      */
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request, Comic $comic)
     {
-        $form_data = $request->all();
+        $form_data = $request->validated();
         //$comic = Comic::findOrFail($id);
         $comic->update($form_data);
         return redirect()->route('comic.index', $comic->id)->with('message', "Il prodotto con id {$comic->id} è stato modificato con successo");
