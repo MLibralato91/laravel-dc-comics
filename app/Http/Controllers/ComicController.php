@@ -42,10 +42,11 @@ class ComicController extends Controller
     public function store(StoreComicRequest $request)
     {
         $data = $request->validated();
-        $newComic = new Comic();
+        //$newComic = new Comic();
 
-        $newComic->fill($data);
-        $newComic->save();
+        //$newComic->fill($data);
+        //$newComic->save();
+        $newComic = Comic::create($data);
         return redirect()->route('comic.index')->with('message', "Il prodotto con id {$newComic->id} è stato salvato con successo");
     }
 

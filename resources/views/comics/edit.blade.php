@@ -82,8 +82,8 @@
 
             </div>
 
-            <button type="submit" class="btn btn-primary">Update</button>
-            <button type="reset" class="btn btn-primary">Reset</button>
+            <button type="submit" class="btn btn-primary">Modifica</button>
+
         </form>
     </section>
 @endsection
