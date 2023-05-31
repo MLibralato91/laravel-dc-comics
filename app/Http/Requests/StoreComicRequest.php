@@ -24,12 +24,13 @@ class StoreComicRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:255|min:3',
-            'image' => 'required|max:255',
-            'type' => 'required|max:25',
-            'cooking_time' => 'required|max:25',
-            'weight' => 'required|max:25',
-            'description' => 'required'
+            'title' => 'required',
+            'description' => 'required|max:450',
+            'thumb' => 'required',
+            'price' => 'required',
+            'series' => 'required',
+            'sale_date' => 'required',
+            'type' => 'required',
 
         ];
     }
@@ -37,17 +38,12 @@ class StoreComicRequest extends FormRequest
     {
         return [
             'title.required' => "Il titolo è obbligatorio",
-            'title.max' => "Il tittolo non deve superare 255 caratteri",
-            'title.min' => "Il titolo deve contenere almano 3 caratteri",
-            'image.required' => "Devi inserire la url di una immagine",
-            'image.max' => "La url dell'immagine deve essere di massimo 255 caratteri",
-            'type.required' => 'Il campo è obbligatorio',
-            'type.max' => 'Lunghezza massima 25 caratteri',
-            'cooking_time.required' => 'Il campo è obbligatorio',
-            'cooking_time.max' => 'Lunghezza massima 25 caratteri',
-            'weight.required' => 'Il campo è obbligatorio',
-            'weight.max' => 'Lunghezza massima 25 caratteri',
-            'description.required' => 'Il campo è obbligatorio'
+            'description.required' => 'Il campo è obbligatorio',
+            'thumb.required' => "Devi inserire la url di un'immagine",
+            'price.required' => 'Il campo è obbligatorio',
+            'series.required' => 'Il campo è obbligatorio',
+            'sale_date.required' => 'Il campo è obbligatorio',
+            'type' => 'Il campo è obbligatorio'
 
         ];
     }
